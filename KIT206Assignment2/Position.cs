@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KIT206Assignment2
 {
-    public enum Level { A, B, C, D, E};
+    public enum Level { Student, A, B, C, D, E};
 
     class Position
     {

@@ -21,5 +21,11 @@ namespace KIT206Assignment2
         public string photo { get; set; } //url of image
         public string degree { get; set; }
         public int supervisorId { get; set; }
+
+        public DateTime EarliestStart() 
+        {
+
+            return DateTime.Now;
+        }
     }
 }
