@@ -21,8 +21,8 @@ namespace KIT206Assignment2
         public string email { get; set; }
         public string photo { get; set; } //url of image
         public string degree { get; set; }
-        public int supervisorId { get; set; } //A researcher can have multiple positions, the current position is used by default
-        public Position position { get; set; }
+        public int supervisorId { get; set; }
+        public Position position { get; set; } //A researcher can have multiple positions, current position should be used for details
 
         public string jobTitle() 
         {
