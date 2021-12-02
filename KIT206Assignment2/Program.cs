@@ -38,7 +38,17 @@ namespace KIT206Assignment2
                     position = dummyPositions[0], supervisorId = 100}
             };
 
-            Console.WriteLine(dummyResearchers[0].jobTitle());
+            List<Publication> dummyPublications = new List<Publication>()
+            {
+                new Publication{
+                    doi = "55.2000xp", title = "Real Journal about something",
+                    authours = "John Johnson", year = 2009,
+                    type = Ptype.Journal, citeAs = "real paper, 2009",
+                    available = new DateTime(2021, 4, 21) }
+            };
+
+            Console.WriteLine(dummyResearchers[0].givenName +"'s position is " + dummyResearchers[0].jobTitle());
+            Console.WriteLine("Age of " + dummyPublications[0].title + " is " + dummyPublications[0].Age());
         }
     }
 }
