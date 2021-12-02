@@ -12,6 +12,7 @@ namespace KIT206Assignment2
         {
             Console.WriteLine("-Start-\n");
 
+            //Testing
             List<Position> dummyPositions = new List<Position>() 
             {
                 new Position{
@@ -21,11 +22,12 @@ namespace KIT206Assignment2
                     end = new DateTime(2001, 8, 13) }
             };
 
+            //Testing
             List<Researcher> dummyResearchers = new List<Researcher>()
             {
                 new Researcher{ 
                     id = 500, 
-                    givenName = "John", familyName = "Johnson", 
+                    givenName = "John", familyName = "Johnson",
                     title = "Mr", unit = "Maths", 
                     campus = Campus.Hobart, degree = "Maths", 
                     email = "jjohnson@email.com", photo = "image.jpg", 
