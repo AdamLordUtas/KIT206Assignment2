@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace KIT206Assignment2
 {
+    //Enum for differing employment levels
     public enum Level { Student, A, B, C, D, E};
 
     class Position
@@ -15,6 +16,7 @@ namespace KIT206Assignment2
         public DateTime start { get; set; }
         public DateTime end { get; set; }
 
+        //Turn the level enum into a string
         public string title()
         {
             switch (level)

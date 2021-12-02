@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace KIT206Assignment2
 {
+    //Enum for types of publications
     public enum Ptype { Conferance, Journal, Other};
     class Publication
     {
@@ -17,6 +18,7 @@ namespace KIT206Assignment2
         public string citeAs { get; set; }
         public DateTime available { get; set; }
 
+        //Number of years the since the first publication year
         public int Age() 
         {
             return DateTime.Now.Year - year;
