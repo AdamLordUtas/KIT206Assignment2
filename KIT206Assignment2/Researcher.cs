@@ -8,7 +8,6 @@ namespace KIT206Assignment2
 {
     public enum Rtype { Staff, Student };
     public enum Campus { Hobart, Launceston, Cradle_Coast };
-    public enum Level { A, B, C, D, E };
 
     class Researcher
     {
@@ -21,9 +20,6 @@ namespace KIT206Assignment2
         public string email { get; set; }
         public string photo { get; set; } //url of image
         public string degree { get; set; }
-        public int superVisorId { get; set; }
-        public Level level { get; set; }
-        public DateTime utasStart { get; set; }
-        public DateTime currentStart { get; set; }
+        public int supervisorId { get; set; }
     }
 }
