@@ -23,10 +23,14 @@ namespace KIT206Assignment2
         public int supervisorId { get; set; }
         public Position position { get; set; }
 
-        public DateTime EarliestStart() 
+        public string jobTitle() 
         {
-            //Not done yet
-            return DateTime.Now;
+            return position.title();
         }
+
+/*        public Position firstPosition() 
+        {
+            
+        }*/
     }
 }
