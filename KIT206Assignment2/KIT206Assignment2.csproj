@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control\PublicationControls.cs" />
+    <Compile Include="Control\ResearcherControls.cs" />
+    <Compile Include="Database\erdAdapter.cs" />
     <Compile Include="Research\Position.cs" />
     <Compile Include="Research\Publication.cs" />
     <Compile Include="Research\Researcher.cs" />
@@ -53,9 +56,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Control\" />
-    <Folder Include="Database\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
