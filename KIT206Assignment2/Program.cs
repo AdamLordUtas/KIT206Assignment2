@@ -25,15 +25,11 @@ namespace KIT206Assignment2
             {
                 new Researcher{ 
                     id = 500, 
-                    givenName = "John", 
-                    familyName = "Johnson", 
+                    givenName = "John", familyName = "Johnson", 
                     title = "Mr", unit = "Maths", 
-                    campus = Campus.Hobart, 
-                    degree = "Maths", 
-                    email = "jjohnson@email.com", 
-                    photo = "image.jpg", 
-                    position = dummyPositions[0], 
-                    supervisorId = 100}
+                    campus = Campus.Hobart, degree = "Maths", 
+                    email = "jjohnson@email.com", photo = "image.jpg", 
+                    position = dummyPositions[0], supervisorId = 100}
             };
 
             Console.WriteLine(dummyResearchers[0].jobTitle());
