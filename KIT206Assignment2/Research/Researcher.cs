@@ -25,14 +25,25 @@ namespace KIT206Assignment2
         public Position position { get; set; } //A researcher can have multiple positions, current position should be used for details
 
         //Get the title for the current position
-        public string jobTitle() 
+        public string JobTitle() 
         {
-            return position.title();
+            return position.Title();
         }
 
-/*        public Position firstPosition() 
+        //Get the earliest position a researcher held
+        public Position firstPosition() 
         {
-            
-        }*/
+            return null;
+        }
+
+        public float Tenure() 
+        {
+            return 0;
+        }
+
+        public int PublicationsCount() 
+        {
+            return 0;
+        }
     }
 }

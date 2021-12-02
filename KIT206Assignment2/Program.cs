@@ -47,7 +47,7 @@ namespace KIT206Assignment2
                     available = new DateTime(2021, 4, 21) }
             };
 
-            Console.WriteLine(dummyResearchers[0].givenName +"'s position is " + dummyResearchers[0].jobTitle());
+            Console.WriteLine(dummyResearchers[0].givenName +"'s position is " + dummyResearchers[0].JobTitle());
             Console.WriteLine("Age of " + dummyPublications[0].title + " is " + dummyPublications[0].Age());
         }
     }

@@ -17,7 +17,7 @@ namespace KIT206Assignment2
         public DateTime end { get; set; }
 
         //Turn the level enum into a string
-        public string title()
+        public string Title()
         {
             switch (level)
             {
