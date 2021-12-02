@@ -38,7 +38,7 @@ namespace KIT206Assignment2
 
         public float Tenure() 
         {
-            return 0;
+            return DateTime.Now.Year - firstPosition().start.Year;
         }
 
         public int PublicationsCount() 

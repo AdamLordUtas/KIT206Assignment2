@@ -38,6 +38,7 @@ namespace KIT206Assignment2
                     position = dummyPositions[0], supervisorId = 100}
             };
 
+            //Testing
             List<Publication> dummyPublications = new List<Publication>()
             {
                 new Publication{
