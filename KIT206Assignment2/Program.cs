@@ -49,7 +49,7 @@ namespace KIT206Assignment2
             };
 
             Console.WriteLine(dummyResearchers[0].givenName +"'s position is " + dummyResearchers[0].JobTitle());
-            Console.WriteLine("The age of " + dummyPublications[0].title + " is " + dummyPublications[0].Age() + " years");
+            Console.WriteLine("The age of " + dummyPublications[0].title + " is " + dummyPublications[0].Age() + " years old");
         }
     }
 }
