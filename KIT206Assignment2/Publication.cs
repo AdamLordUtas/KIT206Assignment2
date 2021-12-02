@@ -16,5 +16,10 @@ namespace KIT206Assignment2
         public Ptype type { get; set; }
         public string citeAs { get; set; }
         public DateTime available { get; set; }
+
+        public int Age() 
+        {
+            return DateTime.Now.Year - year;
+        }
     }
 }
