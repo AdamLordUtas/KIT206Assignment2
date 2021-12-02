@@ -8,6 +8,7 @@ namespace KIT206Assignment2
 {
     //Enum for types of publications
     public enum Ptype { Conferance, Journal, Other};
+
     class Publication
     {
         public string doi { get; set; }

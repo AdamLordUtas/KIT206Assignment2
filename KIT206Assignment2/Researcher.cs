@@ -24,6 +24,7 @@ namespace KIT206Assignment2
         public int supervisorId { get; set; }
         public Position position { get; set; } //A researcher can have multiple positions, current position should be used for details
 
+        //Get the title for the current position
         public string jobTitle() 
         {
             return position.title();
