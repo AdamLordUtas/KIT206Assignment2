@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace KIT206Assignment2
 {
     //Enums for the type of researcher and the campus they operate on
-    public enum Rtype { Staff, Student };
-    public enum Campus { Hobart, Launceston, Cradle_Coast };
+    public enum Rtype { Staff, Student }
+    public enum Campus { Hobart, Launceston, Cradle_Coast }
 
     class Researcher
     {

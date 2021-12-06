@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace KIT206Assignment2
 {
     //Enum for differing employment levels
-    public enum Level { Student, A, B, C, D, E};
+    public enum Level { Student, A, B, C, D, E}
 
     class Position
     {
