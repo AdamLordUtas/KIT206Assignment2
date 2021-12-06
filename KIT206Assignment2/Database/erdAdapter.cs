@@ -13,7 +13,7 @@ namespace KIT206Assignment2
     private const string pass = "kit206";
     private const string server = "alacritas.cis.utas.edu.au";
 
-    private SqlConnection conn;
+    private MySqlConnection conn;
 
     class erdAdapter
     {
