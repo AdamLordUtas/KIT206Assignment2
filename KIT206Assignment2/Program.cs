@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//uyguhh
 
 namespace KIT206Assignment2
 {
@@ -15,6 +14,8 @@ namespace KIT206Assignment2
     {
         static void Main(string[] args)
         {
+            erdAdapter adapter = new erdAdapter();
+
             Console.WriteLine("-Start-\n");
 
             //Testing
@@ -49,8 +50,8 @@ namespace KIT206Assignment2
                     available = new DateTime(2021, 4, 21) }
             };
 
-            Console.WriteLine(dummyResearchers[0].givenName +"'s position is " + dummyResearchers[0].JobTitle());
-            Console.WriteLine("The age of " + dummyPublications[0].title + " is " + dummyPublications[0].Age() + " years old");
+            //Console.WriteLine(dummyResearchers[0].givenName +"'s position is " + dummyResearchers[0].JobTitle());
+            //Console.WriteLine("The age of " + dummyPublications[0].title + " is " + dummyPublications[0].Age() + " years old");
         }
     }
 }
