@@ -8,6 +8,11 @@ namespace KIT206Assignment2.Control
 {
     class PublicationControls
     {
+        /// <summary>
+        /// check
+        /// </summary>
+        /// <param name="researcher"></param>
+        /// <returns></returns>
         public Publication[] publications(Researcher researcher) 
         {
             return null;
