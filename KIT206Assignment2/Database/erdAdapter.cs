@@ -41,7 +41,7 @@ namespace KIT206Assignment2.Database
             try 
 	        {	        
 		        conn.Open();
-                MySqlCommand cmd = new MySqlCommand("select given_name, family_name from researcher", conn);
+                MySqlCommand cmd = new MySqlCommand("select id, given_name, family_name from researcher", conn);
                 rdr = cmd.ExecuteReader();
 
                 while (rdr.Read())
