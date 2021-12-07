@@ -165,7 +165,7 @@ namespace KIT206Assignment2.Database
             try
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand(String.Format("select doi from researcher_publication where id = {0}", find.id), conn);
+                MySqlCommand cmd = new MySqlCommand(String.Format("select title from researcher_publication join publication on researcher_publication.doi = publication.doi where researcher_publication.researcher_id = {0}", find.id), conn);
                 rdr = cmd.ExecuteReader();
 
                 while (rdr.Read())
@@ -173,7 +173,7 @@ namespace KIT206Assignment2.Database
                     //Console.WriteLine("{0} {1}", rdr[0], rdr.GetString(1));
                     foundPublications.Add(new Publication
                     {
-                        title = rdr.GetString(1)
+                        title = rdr.GetString(0)
                     });
                 }
 
@@ -198,12 +198,45 @@ namespace KIT206Assignment2.Database
         //Get the full details of a specific publication
         public Publication GetFullPublicationDetails(Publication publication) 
         {
-            return null;
+            conn = SqlConnection();
+            MySqlDataReader rdr = null;
+
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(String.Format("select title from researcher_publication join publication on researcher_publication.doi = publication.doi where researcher_publication.researcher_id = {0}", find.id), conn);
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    //Console.WriteLine("{0} {1}", rdr[0], rdr.GetString(1));
+                    foundPublications.Add(new Publication
+                    {
+                        title = rdr.GetString(0)
+                    });
+                }
+
+            }
+            finally
+            {
+                // close the reader
+                if (rdr != null)
+                {
+                    rdr.Close();
+                }
+
+                // Close the connection
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return foundPublications;
         }
 
-        public int[] GetPublicationsCount(DateTime startDate, DateTime endDate) 
+        public int GetPublicationsCount(DateTime startDate, DateTime endDate) 
         {
-            return null;
+            return 0;
         }
     }
 }

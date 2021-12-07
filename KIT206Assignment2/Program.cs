@@ -18,9 +18,10 @@ namespace KIT206Assignment2
     {
         static void Main(string[] args)
         {
-            erdAdapter adapter = new erdAdapter();
-
             Console.WriteLine("-Start-\n");
+
+            //Adapter used to interact with database
+            erdAdapter adapter = new erdAdapter();
             
             //Loading Researchers
             List<Researcher>found = adapter.GetBasicResearcherDetails();
