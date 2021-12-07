@@ -37,17 +37,23 @@ namespace KIT206Assignment2.Database
         //Get the names of the researchers to be presented in a list
         public List<Researcher> GetBasicResearcherDetails() 
         {
+            //Will store list of found researchers if any
             List<Researcher>foundResearchers = new List<Researcher>();
 
+            //Creating a connection and a reader
             conn = SqlConnection();
             MySqlDataReader rdr = null;
 
             try 
-	        {	        
+	        {	      
+                //Opening connection
 		        conn.Open();
+
+                //Query gets basic researcher details, id can be used later to get more details in GetFullResearcherDetails()
                 MySqlCommand cmd = new MySqlCommand("select id, given_name, family_name, title from researcher", conn);
                 rdr = cmd.ExecuteReader();
 
+                //Add each valid researcher to our list
                 while (rdr.Read())
 	            {
                     //Console.WriteLine("{0} {1}", rdr[0], rdr.GetString(1));
@@ -79,21 +85,27 @@ namespace KIT206Assignment2.Database
         }
         
         //Get the full details of an individual researcher to be displayed
-        public Researcher GetFullResearcherDetails(Researcher find) 
+        public Researcher GetFullResearcherDetails(Researcher researcher) 
         {
+            //For storing our researchers details
             Researcher foundResearcher = new Researcher();
 
+            //Creating a connection and a reader
             conn = SqlConnection();
             MySqlDataReader rdr = null;
 
             try
             {
+                //Opening connection
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand(String.Format("select * from researcher where id = {0}", find.id), conn);
+
+                //Query uses the id of a researcher to get more of their details for display
+                MySqlCommand cmd = new MySqlCommand(String.Format("select * from researcher where id = {0}", researcher.id), conn);
                 rdr = cmd.ExecuteReader();
 
                 while (rdr.Read())
                 {
+                    //Staff and students have different details stored so check their type and only store relevant details
                     if (rdr.GetString(1) == "Staff")
                     {
                         foundResearcher.id = rdr.GetInt32(0);
@@ -105,6 +117,8 @@ namespace KIT206Assignment2.Database
                         foundResearcher.campus = ParseEnum<Campus>(rdr.GetString(6));
                         foundResearcher.email = rdr.GetString(7);
                         foundResearcher.photo = rdr.GetString(8);
+                        //Staff don't include degree
+                        //Staff don't include supervisor
                         foundResearcher.position = new Position
                         {
                             id = foundResearcher.id,
@@ -130,7 +144,7 @@ namespace KIT206Assignment2.Database
                         foundResearcher.position = new Position
                         {
                             id = foundResearcher.id,
-                            //level = ParseEnum<Level>(rdr.GetString(10)),
+                            //Students don't have a position level
                             start = rdr.GetDateTime(12),
                             end = rdr.GetDateTime(13)
                         };
@@ -155,25 +169,33 @@ namespace KIT206Assignment2.Database
         }
 
         //Get list of publications associated with a researcher
-        public List<Publication> GetBasicPublicationDetails(Researcher find) 
+        public List<Publication> GetBasicPublicationDetails(Researcher researcher) 
         {
+            //List to store found publications if any
             List<Publication> foundPublications = new List<Publication>();
-
+            
+            //Creating a connection and a reader
             conn = SqlConnection();
             MySqlDataReader rdr = null;
 
             try
             {
+                //Opening connection
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand(String.Format("select title from researcher_publication join publication on researcher_publication.doi = publication.doi where researcher_publication.researcher_id = {0}", find.id), conn);
+
+                //Query creates a joined table of all the titles of pubilcations associated with the rsearcher mased on their id 
+                MySqlCommand cmd = new MySqlCommand(String.Format("select publication.doi, publication.title from researcher_publication join publication on researcher_publication.doi = publication.doi where researcher_publication.researcher_id = {0}", researcher.id), conn);
                 rdr = cmd.ExecuteReader();
 
                 while (rdr.Read())
                 {
                     //Console.WriteLine("{0} {1}", rdr[0], rdr.GetString(1));
+
+                    //Adds a relevant publication with a doi and title, doi can be used later to get specific details in GetFullPublicationDetails()
                     foundPublications.Add(new Publication
                     {
-                        title = rdr.GetString(0)
+                        doi = rdr.GetString(0),
+                        title = rdr.GetString(1)
                     });
                 }
 
@@ -198,22 +220,27 @@ namespace KIT206Assignment2.Database
         //Get the full details of a specific publication
         public Publication GetFullPublicationDetails(Publication publication) 
         {
+            Publication foundPublication = null;
+
             conn = SqlConnection();
             MySqlDataReader rdr = null;
 
             try
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand(String.Format("select title from researcher_publication join publication on researcher_publication.doi = publication.doi where researcher_publication.researcher_id = {0}", find.id), conn);
+                MySqlCommand cmd = new MySqlCommand(String.Format("select * from publication where doi = {0}", publication.doi), conn);
                 rdr = cmd.ExecuteReader();
 
                 while (rdr.Read())
                 {
                     //Console.WriteLine("{0} {1}", rdr[0], rdr.GetString(1));
-                    foundPublications.Add(new Publication
-                    {
-                        title = rdr.GetString(0)
-                    });
+                    foundPublication.doi = rdr.GetString(0);
+                    foundPublication.title = rdr.GetString(1);
+                    foundPublication.authours = rdr.GetString(2);
+                    foundPublication.year = rdr.GetInt32(3);
+                    foundPublication.type = ParseEnum<Ptype>(rdr.GetString(4));
+                    foundPublication.citeAs = rdr.GetString(5);
+                    foundPublication.available = rdr.GetDateTime(6);
                 }
 
             }
@@ -231,9 +258,10 @@ namespace KIT206Assignment2.Database
                     conn.Close();
                 }
             }
-            return foundPublications;
+            return foundPublication;
         }
 
+        //Count the amount of publications a researcher has
         public int GetPublicationsCount(DateTime startDate, DateTime endDate) 
         {
             return 0;
