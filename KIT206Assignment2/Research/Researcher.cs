@@ -13,6 +13,8 @@ namespace KIT206Assignment2.Research
     class Researcher
     {
         public int id { get; set; }
+
+        public Rtype type {get; set;}
         public string givenName { get; set; }
         public string familyName { get; set; }
         public string title { get; set; }

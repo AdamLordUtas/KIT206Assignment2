@@ -62,7 +62,16 @@ namespace KIT206Assignment2
                 Console.WriteLine(item.listDisplay());
 	        }
 
+            //List<Publication> foundPub = adapter.GetBasicPublicationDetails(found[0]);
+
+            //foreach (var item in foundPub)
+            //{
+              //  Console.WriteLine(item.title);
+            //}
+
             Researcher specificResearcher = adapter.GetFullResearcherDetails(found[0]);
+
+
             Console.WriteLine(specificResearcher.listDisplay());
         }
     }

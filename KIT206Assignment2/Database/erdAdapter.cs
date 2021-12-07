@@ -19,6 +19,11 @@ namespace KIT206Assignment2.Database
 
         private MySqlConnection conn = null;
 
+        public static T ParseEnum<T>(string value)
+        {
+            return (T)Enum.Parse(typeof(T), value);
+        }
+
         public MySqlConnection SqlConnection()
         {
             if (conn == null) 
@@ -76,7 +81,7 @@ namespace KIT206Assignment2.Database
         //Get the full details of an individual researcher to be displayed
         public Researcher GetFullResearcherDetails(Researcher find) 
         {
-            Researcher foundResearcher = null;
+            Researcher foundResearcher = new Researcher();
 
             conn = SqlConnection();
             MySqlDataReader rdr = null;
@@ -89,23 +94,47 @@ namespace KIT206Assignment2.Database
 
                 while (rdr.Read())
                 {
-                    //Console.WriteLine("{0} {1}", rdr[0], rdr.GetString(1));
-                    foundResearcher = new Researcher
+                    if (rdr.GetString(1) == "Staff")
                     {
-                        id = rdr.GetInt32(0),
-                        givenName = rdr.GetString(1),
-                        familyName = rdr.GetString(2),
-                        title = rdr.GetString(3),
-                        unit = rdr.GetString(4),
-                        //campus = rdr.GetEnumerator(), //5
-                        email = rdr.GetString(6),
-                        photo = rdr.GetString(7),
-                        degree = rdr.GetString(8),
-                        supervisorId = rdr.GetInt32(9),
-                        //position = rdr.GetEnumerator(), //10
-                    };
-                    foundResearcher.position.start = rdr.GetDateTime(11);
-                    foundResearcher.position.end = rdr.GetDateTime(12);
+                        foundResearcher.id = rdr.GetInt32(0);
+                        foundResearcher.type = ParseEnum<Rtype>(rdr.GetString(1));
+                        foundResearcher.givenName = rdr.GetString(2);
+                        foundResearcher.familyName = rdr.GetString(3);
+                        foundResearcher.title = rdr.GetString(4);
+                        foundResearcher.unit = rdr.GetString(5);
+                        foundResearcher.campus = ParseEnum<Campus>(rdr.GetString(6));
+                        foundResearcher.email = rdr.GetString(6);
+                        foundResearcher.photo = rdr.GetString(7);
+                        foundResearcher.degree = rdr.GetString(8);
+                        foundResearcher.supervisorId = rdr.GetInt32(9);
+                        foundResearcher.position = new Position
+                        {
+                            id = foundResearcher.id,
+                            level = Level.None,
+                            start = rdr.GetDateTime(11),
+                            end = rdr.GetDateTime(12)
+                        };
+                    }
+                    
+                    else
+                    {
+                        foundResearcher.id = rdr.GetInt32(0);
+                        foundResearcher.type = ParseEnum<Rtype>(rdr.GetString(1));
+                        foundResearcher.givenName = rdr.GetString(2);
+                        foundResearcher.familyName = rdr.GetString(3);
+                        foundResearcher.title = rdr.GetString(4);
+                        foundResearcher.unit = rdr.GetString(5);
+                        foundResearcher.campus = ParseEnum<Campus>(rdr.GetString(6));
+                        foundResearcher.email = rdr.GetString(6);
+                        foundResearcher.photo = rdr.GetString(7);
+                        foundResearcher.position = new Position
+                        {
+                            id = foundResearcher.id,
+                            level = ParseEnum<Level>(rdr.GetString(10)),
+                            start = rdr.GetDateTime(11),
+                            end = rdr.GetDateTime(12)
+                        };
+                    }
                 }
             }
             finally
@@ -126,9 +155,44 @@ namespace KIT206Assignment2.Database
         }
 
         //Get list of publications associated with a researcher
-        public Publication[] GetBasicPublicationDetails(int researcherId) 
+        public List<Publication> GetBasicPublicationDetails(Researcher find) 
         {
-            return null;
+            List<Publication> foundPublications = new List<Publication>();
+
+            conn = SqlConnection();
+            MySqlDataReader rdr = null;
+
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(String.Format("select doi from researcher_publication where id = {0}", find.id), conn);
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    //Console.WriteLine("{0} {1}", rdr[0], rdr.GetString(1));
+                    foundPublications.Add(new Publication
+                    {
+                        title = rdr.GetString(1)
+                    });
+                }
+
+            }
+            finally
+            {
+                // close the reader
+                if (rdr != null)
+                {
+                    rdr.Close();
+                }
+
+                // Close the connection
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return foundPublications;
         }
 
         //Get the full details of a specific publication
