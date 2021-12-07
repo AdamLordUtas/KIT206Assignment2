@@ -19,7 +19,6 @@ namespace KIT206Assignment2.Database
 
         private MySqlConnection conn = null;
 
-
         public MySqlConnection SqlConnection()
         {
             if (conn == null) 
