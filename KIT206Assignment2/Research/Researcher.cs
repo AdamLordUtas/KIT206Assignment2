@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KIT206Assignment2
+namespace KIT206Assignment2.Research
 {
     //Enums for the type of researcher and the campus they operate on
     public enum Rtype { Staff, Student }

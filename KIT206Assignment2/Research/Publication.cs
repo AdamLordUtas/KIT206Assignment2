@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KIT206Assignment2
+namespace KIT206Assignment2.Research
 {
     //Enum for types of publications
     public enum Ptype { Conferance, Journal, Other}

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KIT206Assignment2
+namespace KIT206Assignment2.Research
 {
     //Enum for differing employment levels
     public enum Level { Student, A, B, C, D, E}

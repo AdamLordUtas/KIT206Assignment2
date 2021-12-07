@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
-namespace KIT206Assignment2
+namespace KIT206Assignment2.Database
 {
     //Note that ordinarily these would (1) be stored in a settings file and (2) have some basic encryption applied
     private const string db = "kit206";
