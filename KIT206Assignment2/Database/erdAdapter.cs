@@ -103,16 +103,14 @@ namespace KIT206Assignment2.Database
                         foundResearcher.title = rdr.GetString(4);
                         foundResearcher.unit = rdr.GetString(5);
                         foundResearcher.campus = ParseEnum<Campus>(rdr.GetString(6));
-                        foundResearcher.email = rdr.GetString(6);
-                        foundResearcher.photo = rdr.GetString(7);
-                        foundResearcher.degree = rdr.GetString(8);
-                        foundResearcher.supervisorId = rdr.GetInt32(9);
+                        foundResearcher.email = rdr.GetString(7);
+                        foundResearcher.photo = rdr.GetString(8);
                         foundResearcher.position = new Position
                         {
                             id = foundResearcher.id,
-                            level = Level.None,
-                            start = rdr.GetDateTime(11),
-                            end = rdr.GetDateTime(12)
+                            level = ParseEnum<Level>(rdr.GetString(11)),
+                            start = rdr.GetDateTime(12),
+                            end = rdr.GetDateTime(13)
                         };
                     }
                     
@@ -127,12 +125,14 @@ namespace KIT206Assignment2.Database
                         foundResearcher.campus = ParseEnum<Campus>(rdr.GetString(6));
                         foundResearcher.email = rdr.GetString(6);
                         foundResearcher.photo = rdr.GetString(7);
+                        foundResearcher.degree = rdr.GetString(9);
+                        foundResearcher.supervisorId = rdr.GetInt32(10);
                         foundResearcher.position = new Position
                         {
                             id = foundResearcher.id,
-                            level = ParseEnum<Level>(rdr.GetString(10)),
-                            start = rdr.GetDateTime(11),
-                            end = rdr.GetDateTime(12)
+                            //level = ParseEnum<Level>(rdr.GetString(10)),
+                            start = rdr.GetDateTime(12),
+                            end = rdr.GetDateTime(13)
                         };
                     }
                 }

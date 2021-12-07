@@ -69,10 +69,9 @@ namespace KIT206Assignment2
               //  Console.WriteLine(item.title);
             //}
 
-            Researcher specificResearcher = adapter.GetFullResearcherDetails(found[0]);
+            Researcher specificResearcher = adapter.GetFullResearcherDetails(found[6]);
 
-
-            Console.WriteLine(specificResearcher.listDisplay());
+            Console.WriteLine("\n" + specificResearcher.listDisplay());
         }
     }
 }
