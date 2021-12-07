@@ -40,13 +40,19 @@ namespace KIT206Assignment2.Database
             try 
 	        {	        
 		        conn.Open();
-                MySqlCommand cmd = new MySqlCommand("select id, given_name, family_name from researcher", conn);
+                MySqlCommand cmd = new MySqlCommand("select id, given_name, family_name, title from researcher", conn);
                 rdr = cmd.ExecuteReader();
 
                 while (rdr.Read())
 	            {
                     //Console.WriteLine("{0} {1}", rdr[0], rdr.GetString(1));
-                    foundResearchers.Add(new Researcher{id = rdr.GetInt32(0), givenName = rdr.GetString(1), familyName = rdr.GetString(2)});
+                    foundResearchers.Add(new Researcher
+                    {
+                        id = rdr.GetInt32(0), 
+                        givenName = rdr.GetString(1), 
+                        familyName = rdr.GetString(2),
+                        title = rdr.GetString(3)
+                    });
 	            }
 
 	        }
@@ -68,9 +74,55 @@ namespace KIT206Assignment2.Database
         }
         
         //Get the full details of an individual researcher to be displayed
-        public Researcher fetchFullResearcherDetails(int researcherId) 
+        public Researcher GetFullResearcherDetails(Researcher find) 
         {
-            return null;
+            Researcher foundResearcher = null;
+
+            conn = SqlConnection();
+            MySqlDataReader rdr = null;
+
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(String.Format("select * from researcher where id = {0}", find.id), conn);
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    //Console.WriteLine("{0} {1}", rdr[0], rdr.GetString(1));
+                    foundResearcher = new Researcher
+                    {
+                        id = rdr.GetInt32(0),
+                        givenName = rdr.GetString(1),
+                        familyName = rdr.GetString(2),
+                        title = rdr.GetString(3),
+                        unit = rdr.GetString(4),
+                        //campus = rdr.GetEnumerator(), //5
+                        email = rdr.GetString(6),
+                        photo = rdr.GetString(7),
+                        degree = rdr.GetString(8),
+                        supervisorId = rdr.GetInt32(9),
+                        //position = rdr.GetEnumerator(), //10
+                    };
+                    foundResearcher.position.start = rdr.GetDateTime(11);
+                    foundResearcher.position.end = rdr.GetDateTime(12);
+                }
+            }
+            finally
+            {
+                // close the reader
+                if (rdr != null)
+                {
+                    rdr.Close();
+                }
+
+                // Close the connection
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return foundResearcher;
         }
 
         //Get list of publications associated with a researcher

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace KIT206Assignment2.Research
 {
     //Enum for differing employment levels
-    public enum Level { Student, A, B, C, D, E}
+    public enum Level { A, B, C, D, E }
 
     class Position
     {
@@ -21,8 +21,6 @@ namespace KIT206Assignment2.Research
         {
             switch (level)
             {
-                case Level.Student:
-                    return "Student";
                 case Level.A:
                     return "Postdoc";
                 case Level.B:
@@ -34,7 +32,7 @@ namespace KIT206Assignment2.Research
                 case Level.E:
                     return "Professor";
                 default:
-                    return "Invalid type";
+                    return "Student";
             }
         }
     }

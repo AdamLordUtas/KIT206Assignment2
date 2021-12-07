@@ -30,9 +30,24 @@ namespace KIT206Assignment2.Research
             return position.Title();
         }
 
+        public Campus dbcampusConv(string dbCampus) 
+        {
+            switch (dbCampus)
+            {
+                case "Hobart":
+                    return Campus.Hobart;
+                case "Cradle Coast":
+                    return Campus.Cradle_Coast;
+                case "Launceston":
+                    return Campus.Launceston;
+                default:
+                    return Campus.Hobart;
+            }
+        }
+
         public string listDisplay()
         {
-            return givenName + " " + familyName;
+            return String.Format("{0} {1} {2}", title, givenName, familyName);
         }
 
         //Get the earliest position a researcher held
