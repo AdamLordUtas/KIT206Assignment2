@@ -30,6 +30,11 @@ namespace KIT206Assignment2.Research
             return position.Title();
         }
 
+        public string listDisplay()
+        {
+            return givenName + " " + familyName;
+        }
+
         //Get the earliest position a researcher held
         public Position firstPosition() 
         {

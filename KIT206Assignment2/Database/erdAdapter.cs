@@ -46,8 +46,8 @@ namespace KIT206Assignment2.Database
 
                 while (rdr.Read())
 	            {
-                    Console.WriteLine("{0} {1}", rdr[0], rdr.GetString(1));
-                    //foundResearchers.Add(new Researcher(id = rdr.GetInt32(0), givenName = rdr.GetString(1), familyName = rdr.GetString(2)));
+                    //Console.WriteLine("{0} {1}", rdr[0], rdr.GetString(1));
+                    foundResearchers.Add(new Researcher{id = rdr.GetInt32(0), givenName = rdr.GetString(1), familyName = rdr.GetString(2)});
 	            }
 
 	        }
@@ -65,7 +65,6 @@ namespace KIT206Assignment2.Database
                     conn.Close();
                 }
             }
-
             return foundResearchers;
         }
         
