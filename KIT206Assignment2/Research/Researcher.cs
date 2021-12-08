@@ -31,21 +31,7 @@ namespace KIT206Assignment2.Research
             return position.Title();
         }
 
-        public Campus dbcampusConv(string dbCampus) 
-        {
-            switch (dbCampus)
-            {
-                case "Hobart":
-                    return Campus.Hobart;
-                case "Cradle Coast":
-                    return Campus.Cradle_Coast;
-                case "Launceston":
-                    return Campus.Launceston;
-                default:
-                    return Campus.Hobart;
-            }
-        }
-
+        //Formatted display for a list eg. Mr John Smith
         public string listDisplay()
         {
             return String.Format("{0} {1} {2}", title, givenName, familyName);
@@ -57,11 +43,13 @@ namespace KIT206Assignment2.Research
             return null;
         }
 
+        //Calculate tenure
         public float Tenure() 
         {
             return DateTime.Now.Year - firstPosition().start.Year;
         }
 
+        //Get the amount of publications a researcher has
         public int PublicationsCount() 
         {
             return 0;
