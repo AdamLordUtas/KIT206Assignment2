@@ -43,7 +43,7 @@ namespace KIT206Assignment2
 
             //Getting a specific publication's details
             Publication specPub = adapter.GetFullPublicationDetails(foundPub[0]);
-            Console.WriteLine(String.Format("{0}, {1}", specPub.doi, specPub.title));
+            Console.WriteLine(String.Format("\n{0},\n{1}\nThis publication is {2} year(s) old,", specPub.doi, specPub.title, specPub.Age()));
 
         }
     }
