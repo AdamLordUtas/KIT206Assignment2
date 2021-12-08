@@ -111,7 +111,7 @@ namespace KIT206Assignment2.Database
 
 				while (rdr.Read())
 				{
-					/*Column numbers for reader:
+					/*Column numbers for rdr.Get****():
 					 * 0 = id
 					 * 1 = type
 					 * 2 = given_name
@@ -267,7 +267,7 @@ namespace KIT206Assignment2.Database
 
 				while (rdr.Read())
 				{
-					/*Column numbers for reader:
+					/*Column numbers for rdr.Get****():
 					 * 0 = doi
 					 * 1 = title
 					 * 2 = authors
