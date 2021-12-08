@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace KIT206Assignment2.Research
 {
     //Enum for types of publications
-    public enum Ptype { Conferance, Journal, Other}
+    public enum Ptype { Conference, Journal, Other}
 
     class Publication
     {

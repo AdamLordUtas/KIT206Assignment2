@@ -234,15 +234,18 @@ namespace KIT206Assignment2.Database
 		//Get the full details of a specific publication
 		public Publication GetFullPublicationDetails(Publication publication) 
 		{
-			Publication foundPublication = null;
+			//For storing the publications details
+			Publication foundPublication = new Publication();
 
+			//Create a connection and a reader
 			conn = SqlConnection();
 			MySqlDataReader rdr = null;
 
 			try
 			{
+				//Open the connection
 				conn.Open();
-				MySqlCommand cmd = new MySqlCommand(String.Format("select * from publication where doi like {0}", publication.doi), conn);
+				MySqlCommand cmd = new MySqlCommand(String.Format("select * from publication where doi = '{0}'", publication.doi), conn);
 				rdr = cmd.ExecuteReader();
 
 				while (rdr.Read())
