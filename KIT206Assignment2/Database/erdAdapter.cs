@@ -86,6 +86,7 @@ namespace KIT206Assignment2.Database
 					conn.Close();
 				}
 			}
+
 			return foundResearchers;
 		}
 		
@@ -191,6 +192,7 @@ namespace KIT206Assignment2.Database
 					conn.Close();
 				}
 			}
+
 			return foundResearcher;
 		}
 
@@ -242,6 +244,7 @@ namespace KIT206Assignment2.Database
 					conn.Close();
 				}
 			}
+
 			return foundPublications;
 		}
 
@@ -302,6 +305,7 @@ namespace KIT206Assignment2.Database
 					conn.Close();
 				}
 			}
+
 			return foundPublication;
 		}
 
