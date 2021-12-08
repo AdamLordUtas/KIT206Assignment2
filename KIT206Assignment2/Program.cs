@@ -41,6 +41,7 @@ namespace KIT206Assignment2
                 Console.WriteLine(item.title);
             }
 
+            //Getting a specific publication
             Console.WriteLine("\n" + adapter.GetFullPublicationDetails(foundPub[0]).title + "\n");
 
         }
