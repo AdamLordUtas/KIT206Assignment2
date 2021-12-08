@@ -24,25 +24,26 @@ namespace KIT206Assignment2
             erdAdapter adapter = new erdAdapter();
             
             //Loading Researchers
-            List<Researcher>found = adapter.GetBasicResearcherDetails();
-            foreach (Researcher item in found)
+            List<Researcher>foundRes = adapter.GetBasicResearcherDetails();
+            foreach (Researcher item in foundRes)
 	        {
                 Console.WriteLine(item.listDisplay());
 	        }
 
             //Getting a specific researcher's details
-            Researcher specificResearcher = adapter.GetFullResearcherDetails(found[6]);
-            Console.WriteLine("\n" + specificResearcher.listDisplay() + "\n");
+            Researcher specRes = adapter.GetFullResearcherDetails(foundRes[6]);
+            Console.WriteLine("\n" + specRes.listDisplay() + "\n");
 
             //Loading Publications for first person
-            List<Publication> foundPub = adapter.GetBasicPublicationDetails(found[0]);
+            List<Publication> foundPub = adapter.GetBasicPublicationDetails(foundRes[0]);
             foreach (var item in foundPub)
             {
                 Console.WriteLine(item.title);
             }
 
-            //Getting a specific publication
-            Console.WriteLine("\n" + adapter.GetFullPublicationDetails(foundPub[0]).title + "\n");
+            //Getting a specific publication's details
+            Publication specPub = adapter.GetFullPublicationDetails(foundPub[0]);
+            Console.WriteLine(String.Format("{0}, {1}", specPub.doi, specPub.title));
 
         }
     }

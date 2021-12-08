@@ -18,12 +18,14 @@ namespace KIT206Assignment2.Database
 		private const string server = "alacritas.cis.utas.edu.au";
 
 		private MySqlConnection conn = null;
-
+		
+		//Used to get the values of enums out of the database
 		public static T ParseEnum<T>(string value)
 		{
 			return (T)Enum.Parse(typeof(T), value);
 		}
 
+		//Creates the connection
 		public MySqlConnection SqlConnection()
 		{
 			if (conn == null) 
@@ -65,6 +67,10 @@ namespace KIT206Assignment2.Database
 					});
 				}
 
+			}
+            catch(Exception e)
+			{
+				Console.WriteLine("Something went wrong " + e);
 			}
 			finally 
 			{
@@ -167,6 +173,10 @@ namespace KIT206Assignment2.Database
 					}
 				}
 			}
+			catch (Exception e)
+			{
+				Console.WriteLine("Something went wrong " + e);
+			}
 			finally
 			{
 				// close the reader
@@ -213,6 +223,10 @@ namespace KIT206Assignment2.Database
 					});
 				}
 
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("Something went wrong " + e);
 			}
 			finally
 			{
@@ -269,6 +283,10 @@ namespace KIT206Assignment2.Database
 					foundPublication.available = rdr.GetDateTime(6);
 				}
 
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("Something went wrong " + e);
 			}
 			finally
 			{
