@@ -34,7 +34,7 @@ namespace KIT206Assignment2
 
             //Getting a specific researcher's details
             Researcher specRes = adapter.GetFullResearcherDetails(foundRes[6]);
-            Console.WriteLine("Specific Researcher");
+            Console.WriteLine("\nSpecific Researcher");
             Console.WriteLine(specRes.listDisplay() + "\n");
 
             //Loading Publications for first person
