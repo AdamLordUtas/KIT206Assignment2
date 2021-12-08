@@ -196,7 +196,7 @@ namespace KIT206Assignment2.Database
 			return foundResearcher;
 		}
 
-		//Get list of publications associated with a researcher
+		//Get a basic list of publications associated with a researcher
 		public List<Publication> GetBasicPublicationDetails(Researcher researcher) 
 		{
 			//List to store found publications if any
