@@ -22,7 +22,8 @@ namespace KIT206Assignment2
 
             //Adapter used to interact with database
             erdAdapter adapter = new erdAdapter();
-            
+            ResearcherControls resControl = new ResearcherControls();
+
             //Loading Researchers
             List<Researcher>foundRes = adapter.GetBasicResearcherDetails();
 
@@ -52,6 +53,7 @@ namespace KIT206Assignment2
             Console.WriteLine("\nSpecific Publication");
             Console.WriteLine(String.Format("{0},\n{1}\nThis publication is {2} year(s) old,", specPub.doi, specPub.title, specPub.Age()));
 
+            resControl.FilterAlphabetically(foundRes);
         }
     }
 }
