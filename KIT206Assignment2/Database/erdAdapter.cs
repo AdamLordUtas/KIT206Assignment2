@@ -24,6 +24,8 @@ namespace KIT206Assignment2.Database
 			return (T)Enum.Parse(typeof(T), value);
 		}
 
+		
+		
 		//Creates the connection
 		public MySqlConnection SqlConnection()
 		{
@@ -53,7 +55,7 @@ namespace KIT206Assignment2.Database
 				conn.Open();
 
 				//Query gets basic researcher details, id can be used later to get more details in GetFullResearcherDetails()
-				MySqlCommand cmd = new MySqlCommand("select id, type, given_name, family_name, title from researcher", conn);
+				MySqlCommand cmd = new MySqlCommand("select id, type, given_name, family_name, title, current_start from researcher", conn);
 				rdr = cmd.ExecuteReader();
 
 				//Add each valid researcher to our list
@@ -66,9 +68,8 @@ namespace KIT206Assignment2.Database
 						givenName = rdr.GetString(2), 
 						familyName = rdr.GetString(3),
 						title = rdr.GetString(4),
-						position = new Position()
 					});
-				}	
+				}
 			}
             catch(Exception e)
 			{
