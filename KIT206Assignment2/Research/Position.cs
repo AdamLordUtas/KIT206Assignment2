@@ -35,5 +35,10 @@ namespace KIT206Assignment2.Research
                     return "Student";
             }
         }
+
+        public void detailsDisplay() 
+        {
+            Console.WriteLine(String.Format("\nA position for {0}, is {1}, started on {2}, ended on {3}.", id, Title(), start, end));
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace KIT206Assignment2.Control
 {
     class ResearcherControls
     {
-        public void FilterAlphabetically(List<Researcher> researchers) 
+        public List<Researcher> FilterAlphabetically(List<Researcher> researchers) 
         {
             Console.WriteLine("\nFiltering...");
 
@@ -18,10 +18,7 @@ namespace KIT206Assignment2.Control
                 orderby researcher.givenName
                 select researcher;
 
-            foreach (var item in filterRes)
-	        {
-                Console.WriteLine(item.givenName);
-        	}
+            return filterRes.ToList();
         }
 
         public void FilterByName(string searchText) 

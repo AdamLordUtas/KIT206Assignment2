@@ -33,6 +33,8 @@ namespace KIT206Assignment2
                 Console.WriteLine(item.listDisplay());
 	        }
 
+            foundRes[0].position.detailsDisplay();
+
             //Getting a specific researcher's details
             Researcher specRes = adapter.GetFullResearcherDetails(foundRes[6]);
             Console.WriteLine("\nSpecific Researcher");
@@ -53,7 +55,14 @@ namespace KIT206Assignment2
             Console.WriteLine("\nSpecific Publication");
             Console.WriteLine(String.Format("{0},\n{1}\nThis publication is {2} year(s) old,", specPub.doi, specPub.title, specPub.Age()));
 
-            resControl.FilterAlphabetically(foundRes);
+            //Get an alphabetically sorted list of researchers
+            List<Researcher> resAlphabetically = resControl.FilterAlphabetically(foundRes);
+
+            //Display it
+            foreach (var item in resAlphabetically)
+	        {
+                Console.WriteLine(item.listDisplay());
+	        }
         }
     }
 }

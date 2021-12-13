@@ -11,7 +11,6 @@ namespace KIT206Assignment2.Database
 {
 	class erdAdapter
 	{
-		//Note that ordinarily these would (1) be stored in a settings file and (2) have some basic encryption applied
 		private const string db = "kit206";
 		private const string user = "kit206";
 		private const string pass = "kit206";
@@ -52,7 +51,7 @@ namespace KIT206Assignment2.Database
 				conn.Open();
 
 				//Query gets basic researcher details, id can be used later to get more details in GetFullResearcherDetails()
-				MySqlCommand cmd = new MySqlCommand("select id, given_name, family_name, title from researcher", conn);
+				MySqlCommand cmd = new MySqlCommand("select id, type, given_name, family_name, title from researcher", conn);
 				rdr = cmd.ExecuteReader();
 
 				//Add each valid researcher to our list
@@ -61,10 +60,35 @@ namespace KIT206Assignment2.Database
 					foundResearchers.Add(new Researcher
 					{
 						id = rdr.GetInt32(0), 
-						givenName = rdr.GetString(1), 
-						familyName = rdr.GetString(2),
-						title = rdr.GetString(3)
+						type = ParseEnum<Rtype>(rdr.GetString(1)),
+						givenName = rdr.GetString(2), 
+						familyName = rdr.GetString(3),
+						title = rdr.GetString(4),
+						position = new Position()
 					});
+				}	
+
+				rdr.Close();
+
+				MySqlCommand findPosition;
+				foreach (var item in foundResearchers)
+				{
+					findPosition = new MySqlCommand(String.Format("select * from position where id = {0}", item.id), conn);
+
+					if (item.type == Rtype.Staff)
+                    {
+						rdr = findPosition.ExecuteReader();
+
+						if(rdr.Read())
+						{
+							item.position.id = item.id;
+							item.position.level = ParseEnum<Level>(rdr.GetString(1));
+							item.position.start = rdr.GetDateTime(2);
+							item.position.end = rdr.GetDateTime(3);
+						}
+
+						rdr.Close();
+					}
 				}
 
 			}
