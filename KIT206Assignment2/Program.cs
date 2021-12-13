@@ -33,8 +33,6 @@ namespace KIT206Assignment2
                 Console.WriteLine(item.listDisplay());
 	        }
 
-            foundRes[0].position.detailsDisplay();
-
             //Getting a specific researcher's details
             Researcher specRes = adapter.GetFullResearcherDetails(foundRes[6]);
             Console.WriteLine("\nSpecific Researcher");

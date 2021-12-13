@@ -67,30 +67,6 @@ namespace KIT206Assignment2.Database
 						position = new Position()
 					});
 				}	
-
-				rdr.Close();
-
-				MySqlCommand findPosition;
-				foreach (var item in foundResearchers)
-				{
-					findPosition = new MySqlCommand(String.Format("select * from position where id = {0}", item.id), conn);
-
-					if (item.type == Rtype.Staff)
-                    {
-						rdr = findPosition.ExecuteReader();
-
-						if(rdr.Read())
-						{
-							item.position.id = item.id;
-							item.position.level = ParseEnum<Level>(rdr.GetString(1));
-							item.position.start = rdr.GetDateTime(2);
-							item.position.end = rdr.GetDateTime(3);
-						}
-
-						rdr.Close();
-					}
-				}
-
 			}
             catch(Exception e)
 			{
