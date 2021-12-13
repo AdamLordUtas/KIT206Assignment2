@@ -35,6 +35,8 @@ namespace KIT206Assignment2.Database
 			return conn; 
 		}
 
+		
+		
 		//Get the names of the researchers to be presented in a list
 		public List<Researcher> GetBasicResearcherDetails() 
 		{
@@ -142,13 +144,7 @@ namespace KIT206Assignment2.Database
 						foundResearcher.photo = rdr.GetString(8);
 						//Staff don't include degree
 						//Staff don't include supervisor
-						foundResearcher.position = new Position
-						{
-							id = foundResearcher.id,
-							level = ParseEnum<Level>(rdr.GetString(11)),
-							start = rdr.GetDateTime(12),
-							end = rdr.GetDateTime(13)
-						};
+						foundResearcher.position = new Position();
 					}
 					
 					else
@@ -164,13 +160,7 @@ namespace KIT206Assignment2.Database
 						foundResearcher.photo = rdr.GetString(7);
 						foundResearcher.degree = rdr.GetString(9);
 						foundResearcher.supervisorId = rdr.GetInt32(10);
-						foundResearcher.position = new Position
-						{
-							id = foundResearcher.id,
-							//Students don't have a position level
-							start = rdr.GetDateTime(12),
-							end = rdr.GetDateTime(13)
-						};
+						foundResearcher.position = new Position();
 					}
 				}
 			}
@@ -196,6 +186,8 @@ namespace KIT206Assignment2.Database
 			return foundResearcher;
 		}
 
+		
+		
 		//Get a basic list of publications associated with a researcher
 		public List<Publication> GetBasicPublicationDetails(Researcher researcher) 
 		{
@@ -248,6 +240,8 @@ namespace KIT206Assignment2.Database
 			return foundPublications;
 		}
 
+		
+		
 		//Get the full details of a specific publication
 		public Publication GetFullPublicationDetails(Publication publication) 
 		{
@@ -309,6 +303,8 @@ namespace KIT206Assignment2.Database
 			return foundPublication;
 		}
 
+		
+		
 		//Count the amount of publications a researcher has
 		public int GetPublicationsCount(DateTime startDate, DateTime endDate) 
 		{
