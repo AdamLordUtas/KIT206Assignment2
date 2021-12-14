@@ -86,7 +86,7 @@ namespace KIT206Assignment2.Database
 				foreach (var researcher in foundResearchers)
 				{
 					//Sql for getting there current position
-					cmd = new MySqlCommand(String.Format("select * from position where id = {0} and start = '{1}'", researcher.id, researcher.position.start.ToString("yyyy/MM/dd")),conn);
+					cmd = new MySqlCommand(String.Format("select * from position where id = {0} and start = '{1}'", researcher.id, researcher.position.start.ToString("yyyy/MM/dd")), conn);
 
 					rdr = cmd.ExecuteReader();
 
