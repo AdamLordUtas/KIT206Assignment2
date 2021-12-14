@@ -24,11 +24,11 @@ namespace KIT206Assignment2
             erdAdapter adapter = new erdAdapter();
             ResearcherControls resControl = new ResearcherControls();
 
+            resControl.list = adapter.GetBasicResearcherDetails();
             //Loading Researchers
-            List<Researcher>foundRes = adapter.GetBasicResearcherDetails();
 
             Console.WriteLine("Researchers");
-            foreach (Researcher item in foundRes)
+            foreach (Researcher item in resControl.list)
 	        {
                 Console.WriteLine(item.listDisplay());
 	        }
