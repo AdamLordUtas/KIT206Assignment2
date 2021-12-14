@@ -39,6 +39,7 @@ namespace KIT206Assignment2
             {
                 Console.WriteLine(item.listDisplay());
             }
+
             //filterbyName
             resControl.FilterByName("John");
             foreach (var item in resControl.GetResearchers())
