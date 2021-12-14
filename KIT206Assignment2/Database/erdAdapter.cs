@@ -41,6 +41,9 @@ namespace KIT206Assignment2.Database
 			return conn; 
 		}
 
+		/*
+		 * Researcher interactions with database
+		 */
 		//Get the names of the researchers to be presented in a list
 		public List<Researcher> GetBasicResearcherDetails() 
 		{
@@ -218,6 +221,9 @@ namespace KIT206Assignment2.Database
 			return foundResearcher;
 		}
 
+		/*
+		 * Publication interactions with database
+		 */
 		//Get a basic list of publications associated with a researcher
 		public List<Publication> GetBasicPublicationDetails(Researcher researcher) 
 		{
