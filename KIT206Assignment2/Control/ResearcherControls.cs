@@ -50,6 +50,7 @@ namespace KIT206Assignment2.Control
             displayList.Clear();
             filterRes.ToList().ForEach(displayList.Add);
         }
+
         public void FilterByLevel(Level level)
         {
             var filterRes = from researcher in masterList
