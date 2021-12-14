@@ -24,8 +24,6 @@ namespace KIT206Assignment2.Database
 			return (T)Enum.Parse(typeof(T), value);
 		}
 
-		
-		
 		//Creates the connection
 		public MySqlConnection SqlConnection()
 		{
@@ -37,8 +35,6 @@ namespace KIT206Assignment2.Database
 			return conn; 
 		}
 
-		
-		
 		//Get the names of the researchers to be presented in a list
 		public List<Researcher> GetBasicResearcherDetails() 
 		{
@@ -121,7 +117,6 @@ namespace KIT206Assignment2.Database
 			return foundResearchers;
 		}
 		
-
 		//Get the full details of an individual researcher to be displayed
 		public Researcher GetFullResearcherDetails(Researcher researcher) 
 		{
@@ -216,8 +211,6 @@ namespace KIT206Assignment2.Database
 			return foundResearcher;
 		}
 
-		
-		
 		//Get a basic list of publications associated with a researcher
 		public List<Publication> GetBasicPublicationDetails(Researcher researcher) 
 		{
@@ -270,8 +263,6 @@ namespace KIT206Assignment2.Database
 			return foundPublications;
 		}
 
-		
-		
 		//Get the full details of a specific publication
 		public Publication GetFullPublicationDetails(Publication publication) 
 		{
@@ -333,8 +324,6 @@ namespace KIT206Assignment2.Database
 			return foundPublication;
 		}
 
-		
-		
 		//Count the amount of publications a researcher has
 		public int GetPublicationsCount(Researcher researcher) 
 		{
