@@ -30,6 +30,15 @@ namespace KIT206Assignment2
             {
                 Console.WriteLine(item.listDisplay());
             }
+
+            //Run filter
+            resControl.FilterAlphabetically();
+
+            //Display filter
+            foreach (var item in resControl.GetResearchers())
+            {
+                Console.WriteLine(item.listDisplay());
+            }
         }
     }
 }
