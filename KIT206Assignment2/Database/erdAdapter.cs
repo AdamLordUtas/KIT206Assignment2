@@ -225,7 +225,7 @@ namespace KIT206Assignment2.Database
 		 * Publication interactions with database
 		 */
 		//Get a basic list of publications associated with a researcher
-		public List<Publication> GetBasicPublicationDetails(Researcher researcher) 
+		public List<Publication> GetBasicPublicationDetails(int researcherId) 
 		{
 			//List to store found publications if any
 			List<Publication> foundPublications = new List<Publication>();
