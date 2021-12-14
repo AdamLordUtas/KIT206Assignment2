@@ -34,7 +34,7 @@ namespace KIT206Assignment2.Research
         //Formatted display for a list eg. Mr John Smith
         public string listDisplay()
         {
-            return String.Format("{0} {1} {2}", title, givenName, familyName);
+            return String.Format("{0} {1} {2} {3}", title, givenName, familyName, JobTitle());
         }
 
         //Get the earliest position a researcher held

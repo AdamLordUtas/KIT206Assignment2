@@ -74,6 +74,28 @@ namespace KIT206Assignment2.Database
 						}
 					});
 				}
+
+				rdr.Close();
+
+				//Getting the current position of a researcher
+				foreach (var researcher in foundResearchers)
+				{
+					cmd = new MySqlCommand(String.Format("select * from position where id = {0} and start = '{1}'", researcher.id, researcher.position.start.ToString("yyyy/MM/dd")),conn);
+
+					rdr = cmd.ExecuteReader();
+
+					if (rdr.Read())
+					{
+						researcher.position.id = researcher.id;
+						researcher.position.level = ParseEnum<Level>(rdr.GetString(1));
+						if (!rdr.IsDBNull(3))
+						{
+							researcher.position.end = rdr.GetDateTime(3);
+						}
+					}
+
+					rdr.Close();
+				}	
 			}
             catch(Exception e)
 			{
