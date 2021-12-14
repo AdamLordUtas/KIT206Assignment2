@@ -24,6 +24,12 @@ namespace KIT206Assignment2.Database
 			return (T)Enum.Parse(typeof(T), value);
 		}
 
+		//Special parse enum for campus as cradle coast is called crade_coast in code
+		public static T ParseCampusEnum<T>(string value)
+		{
+           return (T)Enum.Parse(typeof(T), value.Replace(" ","_"));
+		}
+
 		//Creates the connection
 		public MySqlConnection SqlConnection()
 		{
@@ -165,7 +171,7 @@ namespace KIT206Assignment2.Database
 						foundResearcher.familyName = rdr.GetString(3);
 						foundResearcher.title = rdr.GetString(4);
 						foundResearcher.unit = rdr.GetString(5);
-						foundResearcher.campus = ParseEnum<Campus>(rdr.GetString(6));
+						foundResearcher.campus = ParseCampusEnum<Campus>(rdr.GetString(6));
 						foundResearcher.email = rdr.GetString(7);
 						foundResearcher.photo = rdr.GetString(8);
 						//Staff don't include degree
