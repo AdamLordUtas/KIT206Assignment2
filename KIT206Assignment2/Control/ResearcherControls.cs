@@ -44,7 +44,19 @@ namespace KIT206Assignment2.Control
 
         public void FilterByName(string searchText) 
         {
-            
+            var filterRes = from researcher in masterList
+                           where researcher.givenName.Contains(searchText)
+                           select researcher;
+            displayList.Clear();
+            filterRes.ToList().ForEach(displayList.Add);
+        }
+        public void FilterByLevel(Level level)
+        {
+            var filterRes = from researcher in masterList
+                            where researcher.position.level.Equals(level)
+                            select researcher;
+            displayList.Clear();
+            filterRes.ToList().ForEach(displayList.Add);
         }
     }
 }
