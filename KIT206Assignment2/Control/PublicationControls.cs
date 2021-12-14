@@ -40,6 +40,17 @@ namespace KIT206Assignment2.Control
             displayList.Clear();
             filterPub.ToList().ForEach(displayList.Add);
         }
+        public void OrderByDescending()
+        {
+            Console.WriteLine("\nOrderbyDescending...");
 
+            IEnumerable<Publication> filterPub =
+                from Publication in masterList
+                orderby Publication.year descending
+                select Publication;
+
+            displayList.Clear();
+            filterPub.ToList().ForEach(displayList.Add);
+        }
     }
 }
