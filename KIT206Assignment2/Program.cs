@@ -34,12 +34,12 @@ namespace KIT206Assignment2
 	        }
 
             //Getting a specific researcher's details
-            Researcher specRes = adapter.GetFullResearcherDetails(foundRes[6]);
+            Researcher specRes = adapter.GetFullResearcherDetails(resControl.list[6]);
             Console.WriteLine("\nSpecific Researcher");
             Console.WriteLine(specRes.listDisplay() + "\n");
 
             //Loading Publications for first person
-            List<Publication> foundPub = adapter.GetBasicPublicationDetails(foundRes[0]);
+            List<Publication> foundPub = adapter.GetBasicPublicationDetails(resControl.list[0]);
             
             Console.WriteLine("Publications");
             foreach (var item in foundPub)
@@ -54,7 +54,7 @@ namespace KIT206Assignment2
             Console.WriteLine(String.Format("{0},\n{1}\nThis publication is {2} year(s) old,", specPub.doi, specPub.title, specPub.Age()));
 
             //Get an alphabetically sorted list of researchers
-            List<Researcher> resAlphabetically = resControl.FilterAlphabetically(foundRes);
+            List<Researcher> resAlphabetically = resControl.FilterAlphabetically(resControl.list);
 
             //Display it
             foreach (var item in resAlphabetically)
