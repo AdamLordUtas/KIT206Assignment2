@@ -276,7 +276,6 @@ namespace KIT206Assignment2.Database
 			return foundPublications;
 		}
 
-
 		//Get the full details of a specific publication
 		public Publication GetFullPublicationDetails(Publication publication) 
 		{

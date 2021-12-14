@@ -34,12 +34,11 @@ namespace KIT206Assignment2.Control
 
             IEnumerable<Publication> filterPub =
                 from Publication in masterList
-                orderby Publication.year
+                orderby Publication
                 select Publication;
 
             displayList.Clear();
             filterPub.ToList().ForEach(displayList.Add);
         }
-
     }
 }
