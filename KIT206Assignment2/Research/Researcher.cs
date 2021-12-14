@@ -36,23 +36,5 @@ namespace KIT206Assignment2.Research
         {
             return String.Format("{0} {1} {2}", title, givenName, familyName);
         }
-
-        //Get the earliest position a researcher held
-        public Position firstPosition() 
-        {
-            return null;
-        }
-
-        //Calculate tenure
-        public float Tenure() 
-        {
-            return DateTime.Now.Year - firstPosition().start.Year;
-        }
-
-        //Get the amount of publications a researcher has
-        public int PublicationsCount() 
-        {
-            return 0;
-        }
     }
 }
