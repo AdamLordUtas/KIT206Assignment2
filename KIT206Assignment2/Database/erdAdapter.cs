@@ -68,6 +68,10 @@ namespace KIT206Assignment2.Database
 						givenName = rdr.GetString(2), 
 						familyName = rdr.GetString(3),
 						title = rdr.GetString(4),
+						position = new Position 
+						{
+							start = rdr.GetDateTime(5)
+						}
 					});
 				}
 			}
@@ -93,6 +97,7 @@ namespace KIT206Assignment2.Database
 			return foundResearchers;
 		}
 		
+
 		//Get the full details of an individual researcher to be displayed
 		public Researcher GetFullResearcherDetails(Researcher researcher) 
 		{
@@ -307,7 +312,7 @@ namespace KIT206Assignment2.Database
 		
 		
 		//Count the amount of publications a researcher has
-		public int GetPublicationsCount(DateTime startDate, DateTime endDate) 
+		public int GetPublicationsCount(Researcher researcher) 
 		{
 			return 0;
 		}
