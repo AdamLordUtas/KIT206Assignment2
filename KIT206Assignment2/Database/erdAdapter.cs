@@ -116,6 +116,7 @@ namespace KIT206Assignment2.Database
 
 			return foundResearchers;
 		}
+	
 		
 		//Get the full details of an individual researcher to be displayed
 		public Researcher GetFullResearcherDetails(Researcher researcher) 
