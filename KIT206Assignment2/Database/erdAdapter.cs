@@ -226,6 +226,7 @@ namespace KIT206Assignment2.Database
 		 */
 		//Get a basic list of publications associated with a researcher
 		public List<Publication> GetBasicPublicationDetails(int researcherId) 
+
 		{
 			//List to store found publications if any
 			List<Publication> foundPublications = new List<Publication>();
@@ -275,6 +276,7 @@ namespace KIT206Assignment2.Database
 
 			return foundPublications;
 		}
+
 
 		//Get the full details of a specific publication
 		public Publication GetFullPublicationDetails(Publication publication) 

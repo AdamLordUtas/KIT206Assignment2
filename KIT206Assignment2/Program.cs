@@ -54,12 +54,14 @@ namespace KIT206Assignment2
             }
             //load publications
             pubControl.LoadPublications(123460);
+
             //orderByYear
             pubControl.OrderByYear();
             foreach (var item in pubControl.GetPublications())
             {
                 Console.WriteLine(item.title);
             }
+
             //oderByDescending
             pubControl.OrderByDescending();
             foreach (var item in pubControl.GetPublications())

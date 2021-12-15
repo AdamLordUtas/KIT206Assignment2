@@ -34,13 +34,13 @@ namespace KIT206Assignment2.Control
 
             IEnumerable<Publication> filterPub =
                 from Publication in masterList
-                orderby Publication
+                orderby Publication.year
                 select Publication;
 
             displayList.Clear();
             filterPub.ToList().ForEach(displayList.Add);
         }
-<<<<<<< HEAD
+
         public void OrderByDescending()
         {
             Console.WriteLine("\nOrderbyDescending...");
@@ -53,7 +53,5 @@ namespace KIT206Assignment2.Control
             displayList.Clear();
             filterPub.ToList().ForEach(displayList.Add);
         }
-=======
->>>>>>> 703465170ea6f1163c07dd0231b03e2512a7b949
     }
 }
