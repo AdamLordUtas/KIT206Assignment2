@@ -52,7 +52,7 @@ namespace KIT206Assignment2
             {
                 Console.WriteLine(item.listDisplay());
             }
-           
+
         }
     }
 }

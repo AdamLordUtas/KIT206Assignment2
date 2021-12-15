@@ -29,7 +29,6 @@ namespace KIT206Assignment2.Control
         }
 
         public void FilterAlphabetically() 
-
         {
             Console.WriteLine("\nFiltering...");
 
