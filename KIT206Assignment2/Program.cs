@@ -60,8 +60,12 @@ namespace KIT206Assignment2
             {
                 Console.WriteLine(item.listDisplay());
             }
-
-
+            //OrderByDescending
+            pubControl.OrderByDescending();
+            foreach (var item in pubControl.GetPublications())
+            {
+                Console.WriteLine(item.listDisplay());
+            }
         }
     }
 }
