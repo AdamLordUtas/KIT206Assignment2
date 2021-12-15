@@ -241,7 +241,7 @@ namespace KIT206Assignment2.Database
 				conn.Open();
 
 				//Query creates a joined table of all the titles of pubilcations associated with the rsearcher mased on their id 
-				MySqlCommand cmd = new MySqlCommand(String.Format("select publication.doi, publication.title from researcher_publication join publication on researcher_publication.doi = publication.doi where researcher_publication.researcher_id = {0}", researcherId), conn);
+				MySqlCommand cmd = new MySqlCommand(String.Format("select publication.doi, publication.title, publication.year from researcher_publication join publication on researcher_publication.doi = publication.doi where researcher_publication.researcher_id = {0}", researcherId), conn);
 				rdr = cmd.ExecuteReader();
 
 				while (rdr.Read())
@@ -250,7 +250,8 @@ namespace KIT206Assignment2.Database
 					foundPublications.Add(new Publication
 					{
 						doi = rdr.GetString(0),
-						title = rdr.GetString(1)
+						title = rdr.GetString(1),
+						year = rdr.GetInt32(2)
 					});
 				}
 

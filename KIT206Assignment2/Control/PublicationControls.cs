@@ -34,7 +34,7 @@ namespace KIT206Assignment2.Control
 
             IEnumerable<Publication> filterPub =
                 from Publication in masterList
-                orderby Publication.year orderby Publication.title
+                orderby Publication.year
                 select Publication;
 
             displayList.Clear();
@@ -47,7 +47,7 @@ namespace KIT206Assignment2.Control
 
             IEnumerable<Publication> filterPub =
                 from Publication in masterList
-                orderby Publication.year descending orderby Publication.title
+                orderby Publication.year descending
                 select Publication;
 
             displayList.Clear();
