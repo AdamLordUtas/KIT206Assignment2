@@ -52,6 +52,10 @@ namespace KIT206Assignment2
             {
                 Console.WriteLine(item.listDisplay());
             }
+            //load Publication
+            pubControl.LoadPublications(123460);
+            //
+
 
         }
     }
