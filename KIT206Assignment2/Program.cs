@@ -58,13 +58,13 @@ namespace KIT206Assignment2
             pubControl.OrderByYear();
             foreach (var item in pubControl.GetPublications())
             {
-                Console.WriteLine(item.listDisplay());
+                Console.WriteLine(item.title);
             }
             //OrderByDescending
             pubControl.OrderByDescending();
             foreach (var item in pubControl.GetPublications())
             {
-                Console.WriteLine(item.listDisplay());
+                Console.WriteLine(item.title);
             }
         }
     }
