@@ -30,7 +30,7 @@ namespace KIT206Assignment2.Control
 
         public void FilterAlphabetically() 
         {
-            Console.WriteLine("\nFiltering...");
+            Console.WriteLine("\nFiltering alphabetically");
 
             IEnumerable<Researcher> filterRes = 
                 from researcher in masterList 
