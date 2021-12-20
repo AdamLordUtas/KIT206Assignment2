@@ -30,7 +30,7 @@ namespace KIT206Assignment2.Control
 
         public void FilterAlphabetically() 
         {
-            Console.WriteLine("\nFiltering...");
+            Console.WriteLine("\nFiltering alphabetically");
 
             IEnumerable<Researcher> filterRes = 
                 from researcher in masterList 
@@ -60,5 +60,7 @@ namespace KIT206Assignment2.Control
             displayList.Clear();
             filterRes.ToList().ForEach(displayList.Add);
         }
+        //Displays the performance of the researcher
+      
     }
 }
