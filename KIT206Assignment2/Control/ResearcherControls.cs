@@ -60,5 +60,7 @@ namespace KIT206Assignment2.Control
             displayList.Clear();
             filterRes.ToList().ForEach(displayList.Add);
         }
+        //Displays the performance of the researcher
+      
     }
 }
