@@ -12,7 +12,7 @@ namespace KIT206Assignment2.Control
     class PublicationControls
     {
         public List<Publication> masterList = new List<Publication>();
-        ObservableCollection<Publication> displayList;
+        public ObservableCollection<Publication> displayList;
         erdAdapter adapter = new erdAdapter();
 
         //Loads the publications
