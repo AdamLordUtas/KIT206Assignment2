@@ -61,6 +61,12 @@ namespace KIT206Assignment2.Control
             filterRes.ToList().ForEach(displayList.Add);
         }
         //Displays the performance of the researcher
-      
+        
+
+        public double Performance() 
+        {
+            double dummy = adapter.GetPublicationCount(123460);
+            return dummy;
+        }
     }
 }

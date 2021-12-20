@@ -126,6 +126,7 @@ namespace KIT206Assignment2.Database
 			return foundResearchers;
 		}
 	
+
 		
 		//Get the full details of an individual researcher to be displayed
 		public Researcher GetFullResearcherDetails(Researcher researcher) 
@@ -346,7 +347,12 @@ namespace KIT206Assignment2.Database
 		{
 			//List to store found publications if any
 			List<Publication> foundPublications = new List<Publication>();
-			int count=0;
+			
+			DateTime threeYears = DateTime.Today.AddYears(-3);
+
+			Console.WriteLine(threeYears);
+
+			int count = 0;
 
 			//Creating a connection and a reader
 			conn = SqlConnection();
@@ -358,7 +364,7 @@ namespace KIT206Assignment2.Database
 				conn.Open();
 
 				//Query creates a joined table of all the titles of pubilcations associated with the rsearcher based on their id 
-				MySqlCommand cmd = new MySqlCommand(String.Format("select publication.doi from researcher_publication join publication on researcher_publication.doi = publication.doi where researcher_publication.researcher_id = {0} and publication.available >= DATEADD(YEAR, -3, GETDATE()) ", researcherId), conn);
+				MySqlCommand cmd = new MySqlCommand(String.Format("select publication.doi from researcher_publication join publication on researcher_publication.doi = publication.doi where researcher_publication.researcher_id = {0} and publication.available >= {1}", researcherId, threeYears.ToString("yyyy/MM/dd")), conn);
 				rdr = cmd.ExecuteReader();
 
 				while (rdr.Read())
@@ -390,6 +396,6 @@ namespace KIT206Assignment2.Database
 		}
 
 
-	}
+		}
 	}
 

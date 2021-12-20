@@ -67,6 +67,8 @@ namespace KIT206Assignment2
             {
                 Console.WriteLine(item.title + item.year);
             }
+
+            Console.WriteLine(resControl.Performance());
         }
     }
 }

@@ -48,7 +48,7 @@ namespace KIT206Assignment2.Research
                 case Campus.Cradle_Coast:
                     return "Cradle Coast";
                 default:
-                break;
+                    return "Invalid Campus";
 	        }
         }
     }
