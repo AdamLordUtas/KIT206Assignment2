@@ -36,5 +36,20 @@ namespace KIT206Assignment2.Research
         {
             return String.Format("{0} {1} {2}", title, givenName, familyName);
         }
+
+        public string campusSting() 
+        {
+            switch (campus)
+	        {
+		        case Campus.Hobart:
+                    return "Hobart";
+                case Campus.Launceston:
+                    return "Launceston";
+                case Campus.Cradle_Coast:
+                    return "Cradle Coast";
+                default:
+                break;
+	        }
+        }
     }
 }

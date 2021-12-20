@@ -340,51 +340,5 @@ namespace KIT206Assignment2.Database
 			return foundPublication;
 		}
 
-		//Count the amount of publications a researcher has
-		public int GetPublicationsCount(int researcherId) 
-		{
-			int count = 0;
-
-			//Creating a connection and a reader
-			conn = SqlConnection();
-			MySqlDataReader rdr = null;
-
-			try
-			{
-				//Opening connection
-				conn.Open();
-
-				//Query creates a joined table of all the titles of pubilcations associated with the rsearcher mased on their id 
-				MySqlCommand cmd = new MySqlCommand(String.Format("select count doi from researcher_publication where researcher_id={0}", researcherId), conn);
-				rdr = cmd.ExecuteReader();
-                while(rdr.Read())
-				{
-					count++;
-                }
-			}
-
-
-			catch (Exception e)
-			{
-				Console.WriteLine("Something went wrong " + e);
-			}
-			finally
-			{
-				// close the reader
-				if (rdr != null)
-				{
-					rdr.Close();
-				}
-
-				// Close the connection
-				if (conn != null)
-				{
-					conn.Close();
-				}
-			}
-
-			return count;
-		}
-	}
 	}
 
