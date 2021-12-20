@@ -44,6 +44,8 @@ namespace KIT206Assignment2.Database
 		/*
 		 * Researcher interactions with database
 		 */
+		
+		
 		//Get the names of the researchers to be presented in a list
 		public List<Researcher> GetBasicResearcherDetails() 
 		{
@@ -364,11 +366,12 @@ namespace KIT206Assignment2.Database
 				conn.Open();
 
 				//Query creates a joined table of all the titles of pubilcations associated with the rsearcher based on their id 
-				MySqlCommand cmd = new MySqlCommand(String.Format("select publication.doi from researcher_publication join publication on researcher_publication.doi = publication.doi where researcher_publication.researcher_id = {0} and publication.available >= {1}", researcherId, threeYears.ToString("yyyy/MM/dd")), conn);
+				MySqlCommand cmd = new MySqlCommand(String.Format("select publication.doi, publication.available from researcher_publication join publication on researcher_publication.doi = publication.doi where researcher_publication.researcher_id = {0} and publication.available >= {1}", researcherId, threeYears.ToString("yyyy/MM/dd")), conn);
 				rdr = cmd.ExecuteReader();
 
 				while (rdr.Read())
 				{
+					Console.WriteLine(rdr.GetDateTime(1));
 					count++;
 				}
 
