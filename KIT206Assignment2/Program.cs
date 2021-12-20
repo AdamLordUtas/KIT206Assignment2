@@ -22,51 +22,7 @@ namespace KIT206Assignment2
             ResearcherControls resControl = new ResearcherControls();
             PublicationControls pubControl = new PublicationControls();
 
-            //Load Researchers
-            resControl.LoadResearchers();
-
-            //Display the master list
-            foreach (var item in resControl.masterList)
-            {
-                Console.WriteLine(item.listDisplay());
-            }
-
-            //Run filter
-            resControl.FilterAlphabetically();
-
-            //Display filter
-            foreach (var item in resControl.GetResearchers())
-            {
-                Console.WriteLine(item.listDisplay());
-            }
-
-            //filterbyName
-            resControl.FilterByName("John");
-            foreach (var item in resControl.GetResearchers())
-            {
-                Console.WriteLine(item.listDisplay());
-            }
-            //filterbyLevel
-            resControl.FilterByLevel(Level.B);
-            foreach (var item in resControl.GetResearchers())
-            {
-                Console.WriteLine(item.listDisplay());
-            }
-            //load Publication
             pubControl.LoadPublications(123460);
-
-            //orderbyyear
-            pubControl.OrderByYear();
-            foreach (var item in pubControl.GetPublications())
-            {
-                Console.WriteLine(item.title + item.year);
-            }
-            //OrderByDescending
-            pubControl.OrderByDescending();
-            foreach (var item in pubControl.GetPublications())
-            {
-                Console.WriteLine(item.title + item.year);
-            }
 
             Console.WriteLine(resControl.Performance());
         }
