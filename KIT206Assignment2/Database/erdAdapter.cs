@@ -130,7 +130,7 @@ namespace KIT206Assignment2.Database
 	
 
 		//Get the full details of an individual researcher to be displayed
-		public Researcher GetFullResearcherDetails(Researcher researcher) 
+		public Researcher GetFullResearcherDetails(int id) 
 		{
 			//For storing our researchers details
 			Researcher foundResearcher = new Researcher();
@@ -145,7 +145,7 @@ namespace KIT206Assignment2.Database
 				conn.Open();
 
 				//Query uses the id of a researcher to get more of their details for display
-				MySqlCommand cmd = new MySqlCommand(String.Format("select * from researcher where id = {0}", researcher.id), conn);
+				MySqlCommand cmd = new MySqlCommand(String.Format("select * from researcher where id = {0}", id), conn);
 				rdr = cmd.ExecuteReader();
 
 				while (rdr.Read())
@@ -348,9 +348,9 @@ namespace KIT206Assignment2.Database
 			//List to store found publications if any
 			List<Publication> foundPublications = new List<Publication>();
 			
-			DateTime threeYears = DateTime.Today.AddYears(-4);
+			DateTime threeYears = DateTime.Today.AddYears(-3);
 
-			Console.WriteLine(threeYears);
+			//Console.WriteLine(threeYears);
 
 			int count = 0;
 
@@ -364,12 +364,12 @@ namespace KIT206Assignment2.Database
 				conn.Open();
 
 				//Query creates a joined table of all the titles of pubilcations associated with the rsearcher based on their id 
-				MySqlCommand cmd = new MySqlCommand(String.Format("select publication.doi, publication.available from researcher_publication join publication on researcher_publication.doi = publication.doi where researcher_publication.researcher_id = {0} and publication.available >= {1})", researcherId, threeYears.ToString("yyyy/MM/dd")), conn);
+				MySqlCommand cmd = new MySqlCommand(String.Format("select publication.doi, publication.available from researcher_publication join publication on researcher_publication.doi = publication.doi where researcher_publication.researcher_id = {0} and publication.available >= '{1}'", researcherId, threeYears.ToString("yyyy/MM/dd")), conn);
 				rdr = cmd.ExecuteReader();
 
 					while (rdr.Read())
 					{
-						Console.WriteLine(rdr.GetString(0) + " " + rdr.GetDateTime(1));
+						//Console.WriteLine(rdr.GetString(0) + " " + rdr.GetDateTime(1));
 						count++;
 					}
 

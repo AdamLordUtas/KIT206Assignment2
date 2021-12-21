@@ -22,9 +22,10 @@ namespace KIT206Assignment2
             ResearcherControls resControl = new ResearcherControls();
             PublicationControls pubControl = new PublicationControls();
 
+            resControl.LoadResearchers();
             pubControl.LoadPublications(123460);
 
-            Console.WriteLine(resControl.Performance());
+            Console.WriteLine(resControl.Performance(resControl.masterList[1]));
         }
     }
 }

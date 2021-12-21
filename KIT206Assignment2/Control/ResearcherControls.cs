@@ -74,11 +74,25 @@ namespace KIT206Assignment2.Control
             displayList.Clear();
             filterRes.ToList().ForEach(displayList.Add);
         }
-        //Displays the performance of the researcher
-        public double Performance() 
+
+
+        public double Performance(Researcher researcher) 
         {
-            double dummy = adapter.GetPublicationCount(123460);
-            return dummy;
+            switch (researcher.position.level)
+            {
+                case Level.A:
+                    return adapter.GetPublicationCount(researcher.id) / 0.5;
+                case Level.B:
+                    return adapter.GetPublicationCount(researcher.id) / 1;
+                case Level.C:
+                    return adapter.GetPublicationCount(researcher.id) / 2;
+                case Level.D:
+                    return adapter.GetPublicationCount(researcher.id) / 3.2;
+                case Level.E:
+                    return adapter.GetPublicationCount(researcher.id) / 4;
+                default:
+                    return 0;
+            }
         }
     }
 }
