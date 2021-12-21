@@ -7,22 +7,31 @@ using System.Threading.Tasks;
 namespace KIT206Assignment2.Research
 {
     //Enums for the type of researcher and the campus they operate on
-    public enum Rtype { Staff, Student }
-    public enum Campus { Hobart, Launceston, Cradle_Coast }
+    public enum Rtype 
+    { 
+        Staff, 
+        Student 
+    }
+    public enum Campus 
+    { 
+        Hobart, 
+        Launceston, 
+        Cradle_Coast 
+    }
 
     class Researcher
     {
-        public int id { get; set; }
-        public Rtype type {get; set;}
-        public string givenName { get; set; }
-        public string familyName { get; set; }
-        public string title { get; set; }
-        public string unit { get; set; }
-        public Campus campus { get; set; }
-        public string email { get; set; }
-        public string photo { get; set; } //url of image
-        public string degree { get; set; }
-        public int supervisorId { get; set; }
+        public int id { get; set; }//uniquely identifier
+        public Rtype type {get; set;}//type of researcher (either staff or student)
+        public string givenName { get; set; }//researchers firstname
+        public string familyName { get; set; }//researchers lastname
+        public string title { get; set; }//researchers current job title
+        public string unit { get; set; }//researchers unit
+        public Campus campus { get; set; }//researchers campus
+        public string email { get; set; }//researchers email address
+        public string photo { get; set; } //URL to a photo of researcher
+        public string degree { get; set; }//shows the degree if the researcher is student
+        public int supervisorId { get; set; }//shows the ID of the student's supervisior 
         public Position position { get; set; } //A researcher can have multiple positions, current position should be used for details
 
         //Get the title for the current position

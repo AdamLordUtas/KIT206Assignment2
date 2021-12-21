@@ -7,14 +7,22 @@ using System.Threading.Tasks;
 namespace KIT206Assignment2.Research
 {
     //Enum for differing employment levels
-    public enum Level { N, A, B, C, D, E }
+    public enum Level 
+    {
+        N, 
+        A, 
+        B, 
+        C, 
+        D, 
+        E 
+    }
 
     class Position
     {
-        public int id { get; set; }
-        public Level level { get; set; }
-        public DateTime start { get; set; }
-        public DateTime end { get; set; }
+        public int id { get; set; }//unique ID
+        public Level level { get; set; }//one of the level
+        public DateTime start { get; set; }//Start date
+        public DateTime end { get; set; }//End date
 
         //Turn the level enum into a string
         public string Title()
