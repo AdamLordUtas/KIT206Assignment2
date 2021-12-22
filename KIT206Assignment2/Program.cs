@@ -23,7 +23,12 @@ namespace KIT206Assignment2
             PublicationControls pubControl = new PublicationControls();
 
             resControl.LoadResearchers();
-            pubControl.LoadPublications(123460);
+            pubControl.LoadPublications(resControl.masterList[0].id);
+
+            foreach (var item in pubControl.displayList)
+	        {
+                Console.WriteLine(item.title);
+	        }
 
             Console.WriteLine(resControl.Performance(resControl.masterList[1]));
         }
