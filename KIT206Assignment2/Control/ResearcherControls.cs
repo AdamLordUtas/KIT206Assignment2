@@ -12,7 +12,7 @@ namespace KIT206Assignment2.Control
     class ResearcherControls
     {
         public List<Researcher> masterList = new List<Researcher>();
-        public ObservableCollection<Researcher> displayList;
+        public ObservableCollection<Researcher> displayList = new ObservableCollection<Researcher>();
         erdAdapter adapter = new erdAdapter();
 
         //Loads the researchers
@@ -29,6 +29,8 @@ namespace KIT206Assignment2.Control
             {
                 displayList.Add(item);
             }
+
+            FilterAlphabetically();
         }
 
         public Researcher GetFullDetails(int id) 
@@ -74,8 +76,7 @@ namespace KIT206Assignment2.Control
             displayList.Clear();
             filterRes.ToList().ForEach(displayList.Add);
         }
-
-
+        //Displays the performance of the researcher
         public double Performance(Researcher researcher) 
         {
             switch (researcher.position.level)
